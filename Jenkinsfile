@@ -1,17 +1,19 @@
 pipeline {
     agent any
 
-    stage('Checkout') {
-    steps {
-        git 'https://github.com/RavitejaDayaka111/DevOpsDemo.git'
-    }
-}
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/RavitejaDayaka111/DevOpsDemo.git'
+            }
+        }
 
         stage('Build') {
             steps {
                 sh 'mvn clean install'
             }
         }
+
         stage('Test') {
             steps {
                 sh 'mvn test'
@@ -25,3 +27,4 @@ pipeline {
         }
     }
 }
+
